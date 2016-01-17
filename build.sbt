@@ -31,6 +31,7 @@ lazy val buildSettings = Seq(
   releaseProcessSetting,
   bintrayEnsureBintrayPackageExists := {},
   bintrayEnsureLicenses := {},
+  publishTo := Some(Resolver.sftp("CogcompSoftwareRepo", "bilbo.cs.illinois.edu", "/mounts/bilbo/disks/0/www/cogcomp/html/m2repo/")),
   pomExtra :=
     <developers>
       <developer>
@@ -39,8 +40,7 @@ lazy val buildSettings = Seq(
         <email>dev-role@allenai.org</email>
       </developer>
     </developers>,
-  dependencyOverrides += "com.typesafe" % "config" % "1.2.1") ++
-  PublishTo.sonatype
+  dependencyOverrides += "com.typesafe" % "config" % "1.2.1")
 
 lazy val datastore = Project(
   id = "datastore",
